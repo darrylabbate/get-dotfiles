@@ -11,21 +11,21 @@
 #      \///////\//    \/////        \/////      \///       \///     \//////   \//////////  \//////////
 #
 #
-#	This is an installation script for Darryl Abbate's dotfiles
-#	https://github.com/rootbeersoup/dotfiles
+#  This is an installation script for Darryl Abbate's dotfiles
+#  https://github.com/rootbeersoup/dotfiles
 #
-#	Install by running this command:
-#	curl get.darryl.sh | sh
+#  Install by running this command:
+#  curl get.darryl.sh | sh
 
 
 # Install git
 
 function installgit() {
-	if [ "$(uname -s)" == "Darwin" ]; then  # macOS
-		xcode-select --install
-	elif [ "$(uname -s)" == "Linux" ]; then # Ubuntu
-		sudo apt-get install git -y
-	fi
+  if [ "$(uname -s)" == "Darwin" ]; then  # macOS
+    xcode-select --install
+  elif [ "$(uname -s)" == "Linux" ]; then # Ubuntu
+    sudo apt-get install git -y
+  fi
 }
 
 
@@ -47,7 +47,7 @@ read -p "  Continue? <Y/N> " -n 1 -r
 echo ""
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-	echo "Installing dotfiles..."
+  echo "Installing dotfiles..."
 fi
 
 # Do the thing
