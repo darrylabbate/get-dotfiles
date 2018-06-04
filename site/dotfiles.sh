@@ -35,20 +35,22 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 
-# Ask for confirmation before proceeding
-# Script will proceed upon press of 'Y' key (case-insensitive); It will not listen for a carriage return
+# Display info
 
 echo ""
-echo "Darryl Abbate's dotfiles"
+echo "━━━ Darryl Abbate's dotfiles ━━━━━━━━━━━"
 echo ""
 echo "WARNING: This will install new files and may overwrite some existing files in your home directory."
 echo ""
-read -p "  Continue? <Y/N> " -n 1 -r
+echo "Press CTRL + C now to terminate this process."
 echo ""
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-  echo "Installing dotfiles..."
-fi
+
+# Countdown to liftoff
+
+for i in {5..1}; do 
+  echo -n -e "Installing...$i \r"
+  sleep 1
+done
 
 # Do the thing
 
