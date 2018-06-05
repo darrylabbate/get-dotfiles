@@ -22,7 +22,8 @@
 
 function installgit() {
   if [ "$(uname -s)" == "Darwin" ]; then  # macOS
-    xcode-select --install
+    xcode-select --install && sleep 1
+    osascript -e 'tell application "System Events"' -e 'tell process "Install Command Line Developer Tools"' -e 'keystroke return' -e 'click button "Agree" of window "License Agreement"' -e 'end tell' -e 'end tell'
   elif [ "$(uname -s)" == "Linux" ]; then # Ubuntu
     sudo apt-get install git -y
   fi
@@ -48,13 +49,14 @@ echo ""
 # Countdown to liftoff
 
 for i in {5..1}; do 
-  echo -n -e "Installing...$i \r"
+  printf "Installing...$i \r"
   sleep 1
 done
 
 # Do the thing
 
-installgit                                                            # Install git
-git clone --recursive https://github.com/rootbeersoup/dotfiles.git ~  # Clone the dotfiles repo to the home directory
-cd dotfiles                                                           # Enter ~/dotfiles
-make                                                                  # Invoke the Makefile
+installgit                                                                        # Install git
+sleep 300                                                                         # Give Xcode 5 minutes to install developer tools
+git clone --recursive https://github.com/rootbeersoup/dotfiles.git $HOME/dotfiles # Clone the dotfiles repo to the home directory
+cd $HOME/dotfiles                                                                 # Enter ~/dotfiles
+make                                                                              # Invoke the Makefile
