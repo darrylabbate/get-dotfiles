@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 #
 #     /\\\                                  /\\\\\        /\\\\\\                              
 #     \/\\\                                /\\\///   /\\\ \////\\\                              
@@ -11,23 +11,12 @@
 #      \///////\//    \/////        \/////      \///       \///     \//////   \//////////  \//////////
 #
 #
-#  This is an installation script for Darryl Abbate's dotfiles
-#  https://github.com/rootbeersoup/dotfiles
+# dotfiles installation script
+# Author: Darryl Abbate
+# https://github.com/rootbeersoup/dotfiles
 #
-#  Install by running this command:
-#  curl get.darryl.sh | sh
-
-
-# Install git
-
-function installgit() {
-  if [ "$(uname -s)" == "Darwin" ]; then  # macOS
-    xcode-select --install && sleep 1
-    osascript -e 'tell application "System Events"' -e 'tell process "Install Command Line Developer Tools"' -e 'keystroke return' -e 'click button "Agree" of window "License Agreement"' -e 'end tell' -e 'end tell'
-  elif [ "$(uname -s)" == "Linux" ]; then # Ubuntu
-    sudo apt-get install git -y
-  fi
-}
+# Install by running this command:
+# curl get.darryl.sh | sh
 
 
 # Keep sudo alive for the entire session
@@ -53,10 +42,22 @@ for i in {5..1}; do
   sleep 1
 done
 
-# Do the thing
+# Install git if not already installed
+# Install Homebrew on macOS since it installs Xcode Command-Line Tools automatically
 
-installgit                                                                        # Install git
-sleep 300                                                                         # Give Xcode 5 minutes to install developer tools
-git clone --recursive https://github.com/rootbeersoup/dotfiles.git $HOME/dotfiles # Clone the dotfiles repo to the home directory
-cd $HOME/dotfiles                                                                 # Enter ~/dotfiles
-make                                                                              # Invoke the Makefile
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  if ! [[ -x "$(command -v git)" ]]; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew install git
+  fi
+elif [[ "$(uname -s)" == "Linux" ]]; then
+  if ! [[ -x "$(command -v git)" ]]; then
+    sudo apt-get install git -y
+  fi
+fi
+
+# Clone the dotfiles repository, and invoke the Makefile
+
+git clone --recursive https://github.com/rootbeersoup/dotfiles.git $HOME
+cd $HOME/dotfiles
+make
