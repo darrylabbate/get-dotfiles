@@ -2,7 +2,7 @@
 
 This repository is a mirror for the subdomain of my personal site. It contains a single shell script which can be invoked with `curl` to clone and install my [dotfiles](https://github.com/rootbeersoup/dotfiles). This provides the absolute easiest installation method should I have the misfortune of having to set up a new macOS device.
 
-The SHA-256 checksum of the script is `2a01f65759eb79d27ee5df16471c90349056c8059b5b548addee583f29ff61ff`
+The SHA-256 checksum of the script is `43f828f91ea32c42fc2a228165d4ffd0343b8de4f0d9cd23c5d0d586fadc027e`
 
 You can (and should) verify the SHA-256 checksum before downloading. This can be done via `shasum -a 256`
 

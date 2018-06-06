@@ -35,12 +35,14 @@ echo ""
 echo "Press CTRL + C now to terminate this process."
 echo ""
 
+
 # Countdown to liftoff
 
 for i in {5..1}; do 
   printf "Installing...$i \r"
   sleep 1
 done
+
 
 # Install git if not already installed
 # Install Homebrew on macOS since it installs Xcode Command-Line Tools automatically
@@ -55,6 +57,7 @@ elif [[ "$(uname -s)" == "Linux" ]]; then
     sudo apt-get install git -y
   fi
 fi
+
 
 # Clone the dotfiles repository, and invoke the Makefile
 
