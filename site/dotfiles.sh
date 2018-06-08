@@ -47,13 +47,11 @@ done
 # Install git if not already installed
 # Install Homebrew on macOS since it installs Xcode Command-Line Tools automatically
 
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  if ! [[ -x "$(command -v git)" ]]; then
+if ! [[ -x "$(command -v git)" ]]; then
+  if [[ "$(uname -s)" == "Darwin" ]]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install git
-  fi
-elif [[ "$(uname -s)" == "Linux" ]]; then
-  if ! [[ -x "$(command -v git)" ]]; then
+  elif [[ "$(uname -s)" == "Linux" ]]; then
     sudo apt-get install git -y
   fi
 fi
