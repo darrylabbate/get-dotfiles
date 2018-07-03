@@ -47,17 +47,17 @@ done
 # Install git if not already installed
 # Install Homebrew on macOS since it installs Xcode Command-Line Tools automatically
 
-if ! [[ -x "$(command -v git)" ]]; then
-  if [[ "$(uname -s)" == "Darwin" ]]; then
+if ! [ -x "$(command -v git)" ]; then
+  if [ "$(uname -s)" = "Darwin" ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install git
-  elif [[ "$(uname -s)" == "Linux" ]]; then
+  elif [ "$(uname -s)" = "Linux" ]; then
     sudo apt-get install git -y
   fi
 fi
 
 
-# Clone the dotfiles repository, and invoke the Makefile
+# Clone the dotfiles repository, invoke the Makefile
 
 git clone --recursive https://github.com/rootbeersoup/dotfiles.git $HOME
 cd $HOME/dotfiles
