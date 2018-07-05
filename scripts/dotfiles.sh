@@ -35,17 +35,16 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Display info
 
-printf "\n━━━ \033[1mDarryl Abbate's dotfiles\033[0m ━━━━━━━━━━━\n"
-printf "\n    \033[31mWARNING:\033[0m This will install new files and may overwrite\n    some existing files in your home directory.\n"
-printf "\n    Press CTRL + C now to terminate this process.\n\n"
-
-
-# Countdown to liftoff
-
-for i in $(seq 5 -1 1); do 
-  printf "    Installing...$i\r"
-  sleep 1
-done
+printf "\n\033[1mDOTFILES\033[0m\n"
+printf "\n\033[31mWARNING:\033[0m This will install new files and may overwrite\nsome existing files in your home directory.\n"
+printf "\nContinue? (y/n)\n"
+read -s -n 1 REPLY
+if ! [ $REPLY = Y -o $REPLY = y ]; then
+  printf "\nProcess terminated by user.\n" >&2
+  exit 1
+else
+  printf "\nInstalling dotfiles...\n"
+fi
 
 
 # Install git if not already installed
