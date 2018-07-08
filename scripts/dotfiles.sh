@@ -1,12 +1,7 @@
 #!/bin/sh -e
 #
-# ┌──────────────────────┐
-# │╺┳┓┏━┓╺┳╸┏━╸╻╻  ┏━╸┏━┓│
-# │ ┃┃┃ ┃ ┃ ┣╸ ┃┃  ┣╸ ┗━┓│
-# │╺┻┛┗━┛ ╹ ╹  ╹┗━╸┗━╸┗━┛│
-# └──────────────────────┘
-#
 # dotfiles installation script
+#
 # Author: Darryl Abbate
 # https://github.com/rootbeersoup/dotfiles
 #
