@@ -15,10 +15,6 @@ if [ -d "$HOME/dotfiles" ]; then
   exit 1
 fi
 
-# Keep sudo alive for the entire session
-sudo -v
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
 # Display warning and prompt user to confirm before proceeding
 printf "\\n\\033[1mDOTFILES\\033[0m\\n"
 printf "\\n\\033[31mWARNING:\\033[0m This will install new files and may overwrite\\nsome existing files in your home directory.\\n"
@@ -30,6 +26,10 @@ else
   printf "\\nProcess terminated by user.\\n" >&2
   exit 1
 fi
+
+# Keep sudo alive for the entire session
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Install git if not already installed
 # Install Homebrew on macOS since it installs Xcode Command-Line Tools automatically
