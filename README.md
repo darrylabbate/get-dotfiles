@@ -1,29 +1,24 @@
-## About
+# `get.darryl.sh`
 
-This repository is a mirror for the subdomain of my personal site. Currently it contains a single shell script which can be invoked with `curl` to clone and install my [dotfiles](https://github.com/rootbeersoup/dotfiles). This provides the absolute easiest installation method should I have the misfortune of having to set up a new macOS device.
+A portable toolkit; a collection of scripts designed to be invoked remotely for easy access on any Unix-like system.
 
-The SHA-256 checksum of the script is `2aa8848937852e4e4e01cf738938dc18edabf86a4b3e2a8a9c29b15b66b7a747`
+## Usage
 
-You can (and should) verify the SHA-256 checksum before downloading. This can be done via `shasum -a 256`
+Command | Output
+--------|-------
+`curl get.darryl.sh` | Print basic usage information
+`curl get.darryl.sh/dotfiles | sh` | Installs my [dotfiles](https://github.com/rootbeersoup/dotfiles)
+`curl get.darryl.sh/lite | sh` | A minimal Bash configuration; aliases, bindings, etc
+
+## Checksums
+
+Script | SHA-256 Checksum
+-------|-----------------
+[dotfiles.sh](https://github.com/rootbeersoup/get.darryl.sh/blob/master/src/dotfiles.sh) | `2aa8848937852e4e4e01cf738938dc18edabf86a4b3e2a8a9c29b15b66b7a747`
+[lite.bash](https://github.com/rootbeersoup/get.darryl.sh/blob/master/src/lite.bash) | `a109bffa376f23fe4842d7946617c18d9d7412165c5ded18d2bd0c3b4db314d0`
+
+While `curl | sh` is considered an "unsafe" practice by many, we can mitigate risk by validating checksums of the scripts before piping them directly to `sh`. To check the SHA-256 checksum of the dotfiles installer:
 
 ```bash
-curl get.darryl.sh | shasum -a 256
+curl get.darryl.sh/dotfiles | shasum -a 256
 ```
-
-Once you verify the script, you can proceed to download
-
-```bash
-curl get.darryl.sh | sh
-```
-
-## How it Works
-
-The script itself is fairly concise; It simply:
-
-* Installs git
-* Clones the [dotfiles](https://github.com/rootbeersoup/dotfiles) repository
-* Invokes the [`Makefile`](https://github.com/rootbeersoup/dotfiles/blob/master/Makefile)
-
-### A Note About Directory Structure
-
-My web server is currently configured to use the [`/scripts`](https://github.com/rootbeersoup/get.darryl.sh/tree/master/scripts) directory as the website root. The server is also configured to use `dotfiles.sh` as the index.  All requests to `get.darryl.sh` will point to the `dotfiles.sh` file. If I add more scripts in the future, they'll be accessible at `get.darryl.sh/<script>`.
