@@ -7,8 +7,8 @@ A portable toolkit; a collection of scripts designed to be invoked remotely for 
 Command | Output
 --------|-------
 `curl get.darryl.sh` | Print basic usage information
-`curl get.darryl.sh/dotfiles \| sh` | Installs my [dotfiles](https://github.com/rootbeersoup/dotfiles)
-`curl get.darryl.sh/lite \| sh` | A minimal Bash configuration; aliases, bindings, etc
+`curl get.darryl.sh/dotfiles \| sh` | Install [dotfiles](https://github.com/rootbeersoup/dotfiles)
+`curl get.darryl.sh/lite \| sh` | Source a minimal Bash configuration
 
 ## Checksums
 
