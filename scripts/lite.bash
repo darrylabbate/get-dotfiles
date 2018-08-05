@@ -8,13 +8,12 @@
 #
 # Install by running either command:
 # curl -fsSL get.darryl.sh/lite | bash
-# or
 # wget -qO- get.darryl.sh/lite | bash
 
 # Use vim keybindings in the terminal
 set -o vi
 
-# Bind 'jk' and 'kj' to ESC (enters vi "normal" mode)
+# Bind 'jk' and 'kj' to ESC (enters vi "normal/command" mode)
 bind '"jk":"\e"'
 bind '"kj":"\e"'
 
