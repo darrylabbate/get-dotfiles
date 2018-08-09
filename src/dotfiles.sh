@@ -6,8 +6,8 @@
 # https://github.com/rootbeersoup/dotfiles
 #
 # Install by running either command:
-# curl -fsSL get.darryl.sh | sh
-# wget -qO- get.darryl.sh | sh
+# curl -fsSL get.darryl.sh/dotfiles | sh
+# wget -qO- get.darryl.sh/dotfiles | sh
 
 # Exit if a dotfiles directory already exists
 if [ -d "$HOME/dotfiles" ]; then
