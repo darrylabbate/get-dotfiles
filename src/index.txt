@@ -1,3 +1,4 @@
+
 GET.DARRYL.SH
 
 USAGE:
@@ -5,3 +6,4 @@ USAGE:
   curl get.darryl.sh/dotfiles | sh    Install dotfiles
 
   curl get.darryl.sh/lite | sh        Source a minimal Bash configuration
+
