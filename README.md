@@ -26,5 +26,5 @@ SHA-256   | `63e5f7771799dac27d83884accd4ebf8d3d602ef3343e0880258537020be4068`
 While `curl | sh` is considered an "unsafe" practice by many, we can mitigate risk by validating checksums of the scripts before piping them directly to `sh`. To check the SHA-256 checksum of the dotfiles installer:
 
 ```bash
-curl get.darryl.sh/dotfiles | shasum -a 256
+$ curl get.darryl.sh | shasum -a 256
 ```
