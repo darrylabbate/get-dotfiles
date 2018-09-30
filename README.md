@@ -1,6 +1,6 @@
 # `get.darryl.sh`
 
-Shell script for remotely installing [dotfiles](https://github.com/rootbeersoup/dotfiles), to be invoked with `curl` or `wget`.
+Shell script for downloading the [dotfiles](https://github.com/rootbeersoup/dotfiles) repo, to be invoked with `curl` or `wget`.
 
 ## Usage
 
@@ -12,16 +12,11 @@ $ curl get.darryl.sh | sh
 $ wget -qO- get.darryl.sh | sh
 ```
 
-Read the prompt and choose between full installation or symlink-only installation.
+The script will download the dotfiles repository and place it in `~/dotfiles`. From there, the user is instructed to navigate to the `~/dotfiles` directory to manually invoke the Makefile.
 
 ## Checksums
 
-Algorithm | Checksum
-----------|---------
-MD5       | `ea534914c41f6987b38306148f74c2a4`
-SHA-1     | `d5708ca1db124027f911b78661941b359cc05ebb`
-SHA-256   | `63e5f7771799dac27d83884accd4ebf8d3d602ef3343e0880258537020be4068`
-
+Latest checksums can be found in the [tag notes](https://github.com/rootbeersoup/get.darryl.sh/tags)
 
 While `curl | sh` is considered an "unsafe" practice by many, we can mitigate risk by validating checksums of the scripts before piping them directly to `sh`. To check the SHA-256 checksum of the dotfiles installer:
 
