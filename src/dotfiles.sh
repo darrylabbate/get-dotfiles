@@ -6,8 +6,8 @@
 # https://github.com/rootbeersoup/dotfiles
 #
 # Run with either command:
-# curl -fsSL get.darryl.sh | sh
-# wget -qO- get.darryl.sh | sh
+# curl -fsSL get.darryl.cx | sh
+# wget -qO- get.darryl.cx | sh
 
 # Exit if a dotfiles directory already exists
 dotfiles_check ()
