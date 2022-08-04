@@ -43,7 +43,9 @@ main() {
     
     # Verify successful download and print instructions for the user
     if [ -d "$HOME/dotfiles" ]; then
-        printf "\\033[32mSUCCESS:\\033[0m Repository downloaded to ~/dotfiles\\nNavigate to ~/dotfiles and run \`make help\` for usage info\\n"
+        printf "\\033[32mSUCCESS:\\033[0m Repository downloaded to ~/dotfiles\\n"
+        cd $HOME/dotfiles
+        make
     else
         printf "\\033[31mERROR:\\033[0m dotfiles either not downloaded or not extracted successfully\\n" >&2
         exit 1
